@@ -1,0 +1,34 @@
+defaults: &defaults
+  adapter: <%= defined?(JRUBY_VERSION) ? 'jdbcmysql' : 'mysql' %>
+  username: root
+  password: letmein
+  socket: /opt/local/var/run/mysql5/mysqld.sock
+  
+development:
+  <<: *defaults
+  database: involver_dev
+  
+test1:
+  <<: *defaults
+  database: involver_test1
+
+test:
+  <<: *defaults
+  database: involver_test
+  
+staging:
+  <<: *defaults
+  database: involver_stage
+
+reports:
+  <<: *defaults
+  database: involver_reports
+
+production:
+  <<: *defaults
+  database: involver_prod
+
+salesforce:
+  adapter:   activesalesforce
+  username:  salman@involver.com
+  password:  d3v3l0p3rxTA96GENUVTNuHYjwG8Ag8Bp
